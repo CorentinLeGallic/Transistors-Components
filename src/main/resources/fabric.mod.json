@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "transistors_components",
+	"version": "${version}",
+	"name": "Transistors Components",
+	"description": "Transistors Components is a mod that adds several new redstone blocks, facilitating the creation of transistors and logical gates.",
+	"authors": [
+		"CorentinLG"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": "https://github.com/CorentinLeGallic/Transistors-Components"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/transistors_components/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.corentinlg.transistors_components.TransistorsComponents"
+		],
+		"client": [
+			"com.corentinlg.transistors_components.TransistorsComponentsClient"
+		]
+	},
+	"mixins": [
+		"transistors_components.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~1.16.3",
+		"java": ">=8",
+		"fabric": "*"
+	}
+}

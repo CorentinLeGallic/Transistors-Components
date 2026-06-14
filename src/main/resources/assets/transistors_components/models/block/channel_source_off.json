@@ -1,0 +1,23 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "transistors_components:blocks/channel/channel_source_off"
+	},
+	"elements": [
+		{
+			"name": "source",
+			"from": [7, 2.01, 10],
+			"to": [9, 2.01, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 10]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 0], "texture": "#1"},
+				"east": {"uv": [0, 0, 5, 0], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 0], "texture": "#1"},
+				"west": {"uv": [0, 0, 5, 0], "texture": "#1"},
+				"up": {"uv": [2, 5, 0, 0], "texture": "#1"},
+				"down": {"uv": [4, 0, 2, 5], "texture": "#1"}
+			}
+		}
+	]
+}

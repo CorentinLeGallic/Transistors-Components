@@ -1,0 +1,67 @@
+{
+  "multipart": [
+    { "when": { "facing": "north" }, "apply": { "model": "transistors_components:block/channel_base", "y": 0 } },
+    { "when": { "facing": "east" }, "apply": { "model": "transistors_components:block/channel_base", "y": 90 } },
+    { "when": { "facing": "south" }, "apply": { "model": "transistors_components:block/channel_base", "y": 180 } },
+    { "when": { "facing": "west" }, "apply": { "model": "transistors_components:block/channel_base", "y": 270 } },
+
+
+    { "when": { "facing": "north", "mode": "nmos" }, "apply": { "model": "transistors_components:block/channel_type_nmos", "y": 0 } },
+    { "when": { "facing": "east", "mode": "nmos" }, "apply": { "model": "transistors_components:block/channel_type_nmos", "y": 90 } },
+    { "when": { "facing": "south", "mode": "nmos" }, "apply": { "model": "transistors_components:block/channel_type_nmos", "y": 180 } },
+    { "when": { "facing": "west", "mode": "nmos" }, "apply": { "model": "transistors_components:block/channel_type_nmos", "y": 270 } },
+
+    { "when": { "facing": "north", "mode": "pmos" }, "apply": { "model": "transistors_components:block/channel_type_pmos", "y": 0 } },
+    { "when": { "facing": "east", "mode": "pmos" }, "apply": { "model": "transistors_components:block/channel_type_pmos", "y": 90 } },
+    { "when": { "facing": "south", "mode": "pmos" }, "apply": { "model": "transistors_components:block/channel_type_pmos", "y": 180 } },
+    { "when": { "facing": "west", "mode": "pmos" }, "apply": { "model": "transistors_components:block/channel_type_pmos", "y": 270 } },
+
+
+    { "when": { "facing": "north", "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_source_off", "y": 0 } },
+    { "when": { "facing": "east", "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_source_off", "y": 90 } },
+    { "when": { "facing": "south", "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_source_off", "y": 180 } },
+    { "when": { "facing": "west", "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_source_off", "y": 270 } },
+
+    { "when": { "facing": "north", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_source_on", "y": 0 } },
+    { "when": { "facing": "east", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_source_on", "y": 90 } },
+    { "when": { "facing": "south", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_source_on", "y": 180 } },
+    { "when": { "facing": "west", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_source_on", "y": 270 } },
+
+
+    { "when": { "facing": "north", "gate_powered": "false" }, "apply": { "model": "transistors_components:block/channel_gate_off", "y": 0 } },
+    { "when": { "facing": "east", "gate_powered": "false" }, "apply": { "model": "transistors_components:block/channel_gate_off", "y": 90 } },
+    { "when": { "facing": "south", "gate_powered": "false" }, "apply": { "model": "transistors_components:block/channel_gate_off", "y": 180 } },
+    { "when": { "facing": "west", "gate_powered": "false" }, "apply": { "model": "transistors_components:block/channel_gate_off", "y": 270 } },
+
+    { "when": { "facing": "north", "gate_powered": "true" }, "apply": { "model": "transistors_components:block/channel_gate_on", "y": 0 } },
+    { "when": { "facing": "east", "gate_powered": "true" }, "apply": { "model": "transistors_components:block/channel_gate_on", "y": 90 } },
+    { "when": { "facing": "south", "gate_powered": "true" }, "apply": { "model": "transistors_components:block/channel_gate_on", "y": 180 } },
+    { "when": { "facing": "west", "gate_powered": "true" }, "apply": { "model": "transistors_components:block/channel_gate_on", "y": 270 } },
+
+
+    { "when": { "facing": "north", "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 0 } },
+    { "when": { "facing": "east",  "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 90 } },
+    { "when": { "facing": "south", "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 180 } },
+    { "when": { "facing": "west",  "source_powered": "false" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 270 } },
+
+    { "when": { "facing": "north", "mode": "nmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 0 } },
+    { "when": { "facing": "east",  "mode": "nmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 90 } },
+    { "when": { "facing": "south", "mode": "nmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 180 } },
+    { "when": { "facing": "west",  "mode": "nmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 270 } },
+
+    { "when": { "facing": "north", "mode": "pmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 0 } },
+    { "when": { "facing": "east",  "mode": "pmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 90 } },
+    { "when": { "facing": "south", "mode": "pmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 180 } },
+    { "when": { "facing": "west",  "mode": "pmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_off", "y": 270 } },
+
+    { "when": { "facing": "north", "mode": "nmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 0 } },
+    { "when": { "facing": "east",  "mode": "nmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 90 } },
+    { "when": { "facing": "south", "mode": "nmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 180 } },
+    { "when": { "facing": "west",  "mode": "nmos", "gate_powered": "true", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 270 } },
+
+    { "when": { "facing": "north", "mode": "pmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 0 } },
+    { "when": { "facing": "east",  "mode": "pmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 90 } },
+    { "when": { "facing": "south", "mode": "nmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 180 } },
+    { "when": { "facing": "west",  "mode": "pmos", "gate_powered": "false", "source_powered": "true" }, "apply": { "model": "transistors_components:block/channel_drain_on", "y": 270 } }
+  ]
+}

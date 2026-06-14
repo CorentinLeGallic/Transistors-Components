@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "com.corentinlg.transistors_components.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"RedstoneWireDirectionEditor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

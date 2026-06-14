@@ -1,0 +1,5 @@
+{
+  "block.transistors_components.vertical_transmitter_block": "Vertical Transmitter",
+  "block.transistors_components.channel_block": "Channel",
+  "block.transistors_components.bidirectionnal_repeater_block": "Bidirectionnal Repeater"
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "transistors_components:block/vertical_transmitter_off" },
+    "powered=true": { "model": "transistors_components:block/vertical_transmitter_on" }
+  }
+}
