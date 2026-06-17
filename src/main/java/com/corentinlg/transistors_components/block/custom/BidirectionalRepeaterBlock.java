@@ -23,9 +23,9 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import com.corentinlg.transistors_components.block.enums.BidirectionnalRepeaterDirection;
-import com.corentinlg.transistors_components.block.enums.BidirectionnalRepeaterMode;
-import com.corentinlg.transistors_components.block.enums.BidirectionnalRepeaterSource;
+import com.corentinlg.transistors_components.block.enums.BidirectionalRepeaterDirection;
+import com.corentinlg.transistors_components.block.enums.BidirectionalRepeaterMode;
+import com.corentinlg.transistors_components.block.enums.BidirectionalRepeaterSource;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -46,23 +46,23 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public class BidirectionnalRepeaterBlock extends Block {
+public class BidirectionalRepeaterBlock extends Block {
 
   // Block States & Properties
   
-  public static final EnumProperty<BidirectionnalRepeaterMode> MODE = EnumProperty.of("mode", BidirectionnalRepeaterMode.class);
-  public static final EnumProperty<BidirectionnalRepeaterDirection> DIRECTION = EnumProperty.of("direction", BidirectionnalRepeaterDirection.class);
+  public static final EnumProperty<BidirectionalRepeaterMode> MODE = EnumProperty.of("mode", BidirectionalRepeaterMode.class);
+  public static final EnumProperty<BidirectionalRepeaterDirection> DIRECTION = EnumProperty.of("direction", BidirectionalRepeaterDirection.class);
 
   private static final VoxelShape SHAPE = Block.createCuboidShape(0f, 0f, 0f, 16f, 2f, 16f);
   
   private static final ThreadLocal<Set<BlockPos>> INSTANT_THREAD_LOCAL = ThreadLocal.withInitial(HashSet::new);
 
   // Constructor
-  public BidirectionnalRepeaterBlock(Settings settings) {
+  public BidirectionalRepeaterBlock(Settings settings) {
     super(settings);
     setDefaultState(getDefaultState()
-      .with(MODE, BidirectionnalRepeaterMode.DISABLED)
-      .with(DIRECTION, BidirectionnalRepeaterDirection.Z)
+      .with(MODE, BidirectionalRepeaterMode.DISABLED)
+      .with(DIRECTION, BidirectionalRepeaterDirection.Z)
     );
   }
 
@@ -82,9 +82,9 @@ public class BidirectionnalRepeaterBlock extends Block {
 
     switch (playerFacing) {
       case NORTH: case SOUTH:
-        return getDefaultState().with(DIRECTION, BidirectionnalRepeaterDirection.Z);
+        return getDefaultState().with(DIRECTION, BidirectionalRepeaterDirection.Z);
       case WEST: case EAST:
-        return getDefaultState().with(DIRECTION, BidirectionnalRepeaterDirection.X);
+        return getDefaultState().with(DIRECTION, BidirectionalRepeaterDirection.X);
       default:
         return getDefaultState();
     }
@@ -125,19 +125,19 @@ public class BidirectionnalRepeaterBlock extends Block {
 
   @Override
   public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-    BidirectionnalRepeaterMode modeState = state.get(MODE);
-    BidirectionnalRepeaterDirection directionState = state.get(DIRECTION);
+    BidirectionalRepeaterMode modeState = state.get(MODE);
+    BidirectionalRepeaterDirection directionState = state.get(DIRECTION);
 
-    if (modeState == BidirectionnalRepeaterMode.DISABLED) return 0;
+    if (modeState == BidirectionalRepeaterMode.DISABLED) return 0;
 
-    if (modeState == BidirectionnalRepeaterMode.POWERED_A) {
-      if (directionState == BidirectionnalRepeaterDirection.Z) return (direction == Direction.SOUTH) ? 15 : 0;
-      if (directionState == BidirectionnalRepeaterDirection.X) return (direction == Direction.WEST) ? 15 : 0;
+    if (modeState == BidirectionalRepeaterMode.POWERED_A) {
+      if (directionState == BidirectionalRepeaterDirection.Z) return (direction == Direction.SOUTH) ? 15 : 0;
+      if (directionState == BidirectionalRepeaterDirection.X) return (direction == Direction.WEST) ? 15 : 0;
     }
     
-    if (modeState == BidirectionnalRepeaterMode.POWERED_B) {
-      if (directionState == BidirectionnalRepeaterDirection.Z) return (direction == Direction.NORTH) ? 15 : 0;
-      if (directionState == BidirectionnalRepeaterDirection.X) return (direction == Direction.EAST) ? 15 : 0;
+    if (modeState == BidirectionalRepeaterMode.POWERED_B) {
+      if (directionState == BidirectionalRepeaterDirection.Z) return (direction == Direction.NORTH) ? 15 : 0;
+      if (directionState == BidirectionalRepeaterDirection.X) return (direction == Direction.EAST) ? 15 : 0;
     }
 
     return super.getWeakRedstonePower(state, world, pos, direction);
@@ -158,21 +158,21 @@ public class BidirectionnalRepeaterBlock extends Block {
 @Environment(EnvType.CLIENT)
 @Override
 public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-  BidirectionnalRepeaterMode mode = state.get(MODE);
+  BidirectionalRepeaterMode mode = state.get(MODE);
 
-  if (mode == BidirectionnalRepeaterMode.DISABLED) return;
+  if (mode == BidirectionalRepeaterMode.DISABLED) return;
 
-  BidirectionnalRepeaterDirection direction = state.get(DIRECTION);
+  BidirectionalRepeaterDirection direction = state.get(DIRECTION);
   
   double d = pos.getX() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
   double e = pos.getY() + 0.4375 + (random.nextDouble() - 0.5) * 0.1;
   double f = pos.getZ() + 0.5 + (random.nextDouble() - 0.5) * 0.2;
   
-  float pixelOffset = (mode == BidirectionnalRepeaterMode.POWERED_A) ? 5.0F : -5.0F;
+  float pixelOffset = (mode == BidirectionalRepeaterMode.POWERED_A) ? 5.0F : -5.0F;
   double offset = pixelOffset / 16.0;
 
-  double h = (direction == BidirectionnalRepeaterDirection.Z) ? 0 : offset;
-  double i = (direction == BidirectionnalRepeaterDirection.Z) ? offset : 0;
+  double h = (direction == BidirectionalRepeaterDirection.Z) ? 0 : offset;
+  double i = (direction == BidirectionalRepeaterDirection.Z) ? offset : 0;
   
   world.addParticle(DustParticleEffect.RED, d + h, e, f + i, 0.0, 0.0, 0.0);
 }
@@ -186,28 +186,28 @@ public void randomDisplayTick(BlockState state, World world, BlockPos pos, Rando
     
     while (true) {
       BlockState state = world.getBlockState(pos);
-      if (!(state.getBlock() instanceof BidirectionnalRepeaterBlock)) break;
+      if (!(state.getBlock() instanceof BidirectionalRepeaterBlock)) break;
 
-      BidirectionnalRepeaterMode modeState = state.get(MODE);
+      BidirectionalRepeaterMode modeState = state.get(MODE);
   
-      boolean isReceivingA = isReceivingRedstonePower(state, world, pos, BidirectionnalRepeaterSource.A);
-      boolean isReceivingB = isReceivingRedstonePower(state, world, pos, BidirectionnalRepeaterSource.B);
+      boolean isReceivingA = isReceivingRedstonePower(state, world, pos, BidirectionalRepeaterSource.A);
+      boolean isReceivingB = isReceivingRedstonePower(state, world, pos, BidirectionalRepeaterSource.B);
       
       BlockState newState = state;
   
-      if (modeState == BidirectionnalRepeaterMode.DISABLED) {
+      if (modeState == BidirectionalRepeaterMode.DISABLED) {
         if (isReceivingA) {
-          newState = newState.with(MODE, BidirectionnalRepeaterMode.POWERED_A);
+          newState = newState.with(MODE, BidirectionalRepeaterMode.POWERED_A);
         } else if (isReceivingB) {
-          newState = newState.with(MODE, BidirectionnalRepeaterMode.POWERED_B);
+          newState = newState.with(MODE, BidirectionalRepeaterMode.POWERED_B);
         }
-      } else if (modeState == BidirectionnalRepeaterMode.POWERED_A) {
+      } else if (modeState == BidirectionalRepeaterMode.POWERED_A) {
         if (!isReceivingA) {
-          newState = newState.with(MODE, BidirectionnalRepeaterMode.DISABLED);
+          newState = newState.with(MODE, BidirectionalRepeaterMode.DISABLED);
         }
-      } else if (modeState == BidirectionnalRepeaterMode.POWERED_B) {
+      } else if (modeState == BidirectionalRepeaterMode.POWERED_B) {
         if (!isReceivingB) {
-          newState = newState.with(MODE, BidirectionnalRepeaterMode.DISABLED);
+          newState = newState.with(MODE, BidirectionalRepeaterMode.DISABLED);
         }
       }
 
@@ -223,10 +223,10 @@ public void randomDisplayTick(BlockState state, World world, BlockPos pos, Rando
     }
   }
 
-  private boolean isReceivingRedstonePower(BlockState state, World world, BlockPos pos, BidirectionnalRepeaterSource source) {
-    Direction sourceDirection = (state.get(DIRECTION) == BidirectionnalRepeaterDirection.Z)
-      ? (source == BidirectionnalRepeaterSource.A ? Direction.SOUTH : Direction.NORTH)
-      : (source == BidirectionnalRepeaterSource.A ? Direction.WEST : Direction.EAST);
+  private boolean isReceivingRedstonePower(BlockState state, World world, BlockPos pos, BidirectionalRepeaterSource source) {
+    Direction sourceDirection = (state.get(DIRECTION) == BidirectionalRepeaterDirection.Z)
+      ? (source == BidirectionalRepeaterSource.A ? Direction.SOUTH : Direction.NORTH)
+      : (source == BidirectionalRepeaterSource.A ? Direction.WEST : Direction.EAST);
 
     BlockPos sourceBlockPos = pos.offset(sourceDirection);
 

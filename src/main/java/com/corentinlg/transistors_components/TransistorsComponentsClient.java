@@ -10,6 +10,6 @@ public class TransistorsComponentsClient implements ClientModInitializer {
 
   public void onInitializeClient() {
     BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHANNEL_BLOCK, RenderLayer.getCutout());
-    BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BIDIRECTIONNAL_REPEATER_BLOCK, RenderLayer.getCutout());
+    BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BIDIRECTIONAL_REPEATER_BLOCK, RenderLayer.getCutout());
   }
 }

@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "transistors_components:blocks/bidirectionnal_repeater/bidirectionnal_repeater_output_on"
-	},
+    "2": "transistors_components:blocks/bidirectional_repeater/bidirectional_repeater_output_on"
+  },
 	"elements": [
 		{
 			"name": "output",

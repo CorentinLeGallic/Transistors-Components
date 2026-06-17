@@ -1,7 +1,7 @@
 package com.corentinlg.transistors_components.registry;
 
 import com.corentinlg.transistors_components.TransistorsComponents;
-import com.corentinlg.transistors_components.block.custom.BidirectionnalRepeaterBlock;
+import com.corentinlg.transistors_components.block.custom.BidirectionalRepeaterBlock;
 import com.corentinlg.transistors_components.block.custom.ChannelBlock;
 import com.corentinlg.transistors_components.block.custom.VerticalTransmitterBlock;
 
@@ -30,7 +30,7 @@ public class ModBlocks {
     .nonOpaque()
   );
 
-  public static final BidirectionnalRepeaterBlock BIDIRECTIONNAL_REPEATER_BLOCK = new BidirectionnalRepeaterBlock(FabricBlockSettings
+  public static final BidirectionalRepeaterBlock BIDIRECTIONAL_REPEATER_BLOCK = new BidirectionalRepeaterBlock(FabricBlockSettings
     .of(Material.SUPPORTED)
     .breakByHand(true)
     .strength(0f, 0f)
@@ -41,6 +41,6 @@ public class ModBlocks {
   public static void registerBlocks() {
     Registry.register(Registry.BLOCK, new Identifier(TransistorsComponents.MOD_ID, "vertical_transmitter_block"), VERTICAL_TRANSMITTER_BLOCK);
     Registry.register(Registry.BLOCK, new Identifier(TransistorsComponents.MOD_ID, "channel_block"), CHANNEL_BLOCK);
-    Registry.register(Registry.BLOCK, new Identifier(TransistorsComponents.MOD_ID, "bidirectionnal_repeater_block"), BIDIRECTIONNAL_REPEATER_BLOCK);
+    Registry.register(Registry.BLOCK, new Identifier(TransistorsComponents.MOD_ID, "bidirectional_repeater_block"), BIDIRECTIONAL_REPEATER_BLOCK);
   }
 }

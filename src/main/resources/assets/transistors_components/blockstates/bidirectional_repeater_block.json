@@ -1,0 +1,150 @@
+{
+  "multipart": [
+    {
+      "when": { "direction": "z" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_base",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "x" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_base",
+        "y": 90
+      }
+    },
+
+    {
+      "when": { "direction": "z", "mode": "0" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source1_off",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "z", "mode": "0" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source2_off",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "z", "mode": "0" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_output_off",
+        "y": 0
+      }
+    },
+
+    {
+      "when": { "direction": "x", "mode": "0" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source1_off",
+        "y": 90
+      }
+    },
+    {
+      "when": { "direction": "x", "mode": "0" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source2_off",
+        "y": 90
+      }
+    },
+    {
+      "when": { "direction": "x", "mode": "0" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_output_off",
+        "y": 90
+      }
+    },
+
+    {
+      "when": { "direction": "z", "mode": "1" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source1_on",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "z", "mode": "1" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source2_off",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "z", "mode": "1" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_output_on",
+        "y": 0
+      }
+    },
+
+    {
+      "when": { "direction": "x", "mode": "1" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source1_on",
+        "y": 90
+      }
+    },
+    {
+      "when": { "direction": "x", "mode": "1" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source2_off",
+        "y": 90
+      }
+    },
+    {
+      "when": { "direction": "x", "mode": "1" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_output_on",
+        "y": 90
+      }
+    },
+
+    {
+      "when": { "direction": "z", "mode": "2" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source1_off",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "z", "mode": "2" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source2_on",
+        "y": 0
+      }
+    },
+    {
+      "when": { "direction": "z", "mode": "2" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_output_on",
+        "y": 0
+      }
+    },
+
+    {
+      "when": { "direction": "x", "mode": "2" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source1_off",
+        "y": 90
+      }
+    },
+    {
+      "when": { "direction": "x", "mode": "2" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_source2_on",
+        "y": 90
+      }
+    },
+    {
+      "when": { "direction": "x", "mode": "2" },
+      "apply": {
+        "model": "transistors_components:block/bidirectional_repeater_output_on",
+        "y": 90
+      }
+    }
+  ]
+}

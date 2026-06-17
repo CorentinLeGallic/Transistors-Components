@@ -3,9 +3,9 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "transistors_components:blocks/bidirectionnal_repeater/bidirectionnal_repeater_base",
-		"particle": "transistors_components:blocks/bidirectionnal_repeater/bidirectionnal_repeater_base"
-	},
+    "0": "transistors_components:blocks/bidirectional_repeater/bidirectional_repeater_base",
+    "particle": "transistors_components:blocks/bidirectional_repeater/bidirectional_repeater_base"
+  },
 	"elements": [
 		{
 			"name": "base",

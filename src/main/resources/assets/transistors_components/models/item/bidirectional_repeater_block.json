@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "transistors_components:items/bidirectional_repeater_block"
+  }
+}

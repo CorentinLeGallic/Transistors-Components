@@ -2,14 +2,14 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "transistors_components:blocks/bidirectionnal_repeater/bidirectionnal_repeater_torch_on",
-		"2": "transistors_components:blocks/bidirectionnal_repeater/bidirectionnal_repeater_torch_crest"
-	},
+    "1": "transistors_components:blocks/bidirectional_repeater/bidirectional_repeater_torch_on",
+    "2": "transistors_components:blocks/bidirectional_repeater/bidirectional_repeater_torch_crest"
+  },
 	"elements": [
 		{
-			"name": "source1",
-			"from": [7, 2, 12],
-			"to": [9, 7, 14],
+			"name": "source2",
+			"from": [7, 2, 2],
+			"to": [9, 7, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 5, 2, 10], "texture": "#1"},
@@ -22,8 +22,8 @@
 		},
 		{
 			"name": "source1_crest_1",
-			"from": [7, 5, 11],
-			"to": [7, 7, 12],
+			"from": [7, 5, 1],
+			"to": [7, 7, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [3, 0, 3, 2], "texture": "#2"},
@@ -36,8 +36,8 @@
 		},
 		{
 			"name": "source1_crest_2",
-			"from": [6, 5, 12],
-			"to": [7, 7, 12],
+			"from": [6, 5, 2],
+			"to": [7, 7, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 1, 2], "texture": "#2"},
@@ -50,8 +50,8 @@
 		},
 		{
 			"name": "source1_crest_3",
-			"from": [6, 5, 14],
-			"to": [7, 7, 14],
+			"from": [6, 5, 4],
+			"to": [7, 7, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [1, 0, 2, 2], "texture": "#2"},
@@ -64,8 +64,8 @@
 		},
 		{
 			"name": "source1_crest_4",
-			"from": [7, 5, 14],
-			"to": [7, 7, 15],
+			"from": [7, 5, 4],
+			"to": [7, 7, 5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [3, 0, 3, 2], "texture": "#2"},
@@ -78,8 +78,8 @@
 		},
 		{
 			"name": "source1_crest_5",
-			"from": [9, 5, 14],
-			"to": [9, 7, 15],
+			"from": [9, 5, 4],
+			"to": [9, 7, 5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 0, 2], "texture": "#2"},
@@ -92,8 +92,8 @@
 		},
 		{
 			"name": "source1_crest_6",
-			"from": [9, 5, 14],
-			"to": [10, 7, 14],
+			"from": [9, 5, 4],
+			"to": [10, 7, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [1, 0, 2, 2], "texture": "#2"},
@@ -106,8 +106,8 @@
 		},
 		{
 			"name": "source1_crest_7",
-			"from": [9, 5, 12],
-			"to": [10, 7, 12],
+			"from": [9, 5, 2],
+			"to": [10, 7, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 1, 2], "texture": "#2"},
@@ -120,8 +120,8 @@
 		},
 		{
 			"name": "source1_crest_8",
-			"from": [9, 5, 11],
-			"to": [9, 7, 12],
+			"from": [9, 5, 1],
+			"to": [9, 7, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 0, 2], "texture": "#2"},
@@ -134,8 +134,8 @@
 		},
 		{
 			"name": "source1_crest_9",
-			"from": [7, 7, 14],
-			"to": [9, 8, 14],
+			"from": [7, 7, 4],
+			"to": [9, 8, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [1, 0, 2, 2], "rotation": 90, "texture": "#2"},
@@ -148,8 +148,8 @@
 		},
 		{
 			"name": "source1_crest_10",
-			"from": [9, 7, 12],
-			"to": [9, 8, 14],
+			"from": [9, 7, 2],
+			"to": [9, 8, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 1, 0, 2], "texture": "#2"},
@@ -162,8 +162,8 @@
 		},
 		{
 			"name": "source1_crest_11",
-			"from": [7, 7, 12],
-			"to": [9, 8, 12],
+			"from": [7, 7, 2],
+			"to": [9, 8, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 1, 2], "rotation": 270, "texture": "#2"},
@@ -176,8 +176,8 @@
 		},
 		{
 			"name": "source1_crest_12",
-			"from": [7, 7, 12],
-			"to": [7, 8, 14],
+			"from": [7, 7, 2],
+			"to": [7, 8, 4],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 0, 1], "rotation": 180, "texture": "#2"},
