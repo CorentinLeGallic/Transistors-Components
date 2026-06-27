@@ -107,6 +107,8 @@ public class VerticalTransmitterBlock extends Block implements BlockEntityProvid
 
           world.updateNeighbor(neighborPos, this, columnPosition);
         }
+
+        if (!world.getBlockState(columnPosition.up()).isOf(this)) world.updateNeighbor(columnPosition.up(), this, columnPosition);
       }
     }
   }
@@ -125,7 +127,7 @@ public class VerticalTransmitterBlock extends Block implements BlockEntityProvid
     Direction[] horizontalDirections = HorizontalDirection.VALUES;
 
     for (Direction currentDirection : horizontalDirections) {
-      if (direction == currentDirection) return 15;
+      if (direction == currentDirection || direction == Direction.DOWN) return 15;
     }
 
     return 0;
