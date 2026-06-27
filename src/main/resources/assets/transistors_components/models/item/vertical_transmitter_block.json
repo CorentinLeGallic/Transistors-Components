@@ -1,7 +1,8 @@
 {
-  "parent": "minecraft:block/cube_column",
-	"textures": {
-    "end": "transistors_components:blocks/vertical_transmitter/vertical_transmitter_end",
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "transistors_components:blocks/vertical_transmitter/vertical_transmitter_top_off",
+    "bottom": "transistors_components:blocks/vertical_transmitter/vertical_transmitter_bottom",
     "side": "transistors_components:blocks/vertical_transmitter/vertical_transmitter_side_off"
-	}
+  }
 }
