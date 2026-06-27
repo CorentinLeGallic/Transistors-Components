@@ -30,6 +30,7 @@ import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.SideShapeType;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
@@ -82,7 +83,24 @@ public class ChannelBlock extends Block implements BlockEntityProvider {
 
   @Override
   public BlockState getPlacementState(ItemPlacementContext ctx) {
-    return getDefaultState().with(FACING, ctx.getPlayerFacing());
+    // Source
+
+    World world = ctx.getWorld();
+    BlockPos pos = ctx.getBlockPos();
+    Direction facing = ctx.getPlayerFacing();
+
+    boolean isSourcePowered = isSourcePowered(world, pos, facing);
+
+    // Gate
+
+    boolean isGatePowered = isGatePowered(world, pos);
+
+    updateSourceSignalStrength(world, pos, facing);
+
+    return getDefaultState()
+      .with(FACING, facing)
+      .with(SOURCE_POWERED, isSourcePowered)
+      .with(GATE_POWERED, isGatePowered);
   }
 
   @Override
@@ -111,17 +129,11 @@ public class ChannelBlock extends Block implements BlockEntityProvider {
 
     // Source
 
-    Direction behindDirection = state.get(FACING).getOpposite();
-    BlockPos behindBlockPos = pos.offset(behindDirection);
-
-    int sourcePowerStrength = world.getEmittedRedstonePower(behindBlockPos, behindDirection);
-    boolean isSourcePowered = sourcePowerStrength > 0;
+    boolean isSourcePowered = isSourcePowered(world, pos, state.get(FACING));
 
     // Gate
 
-    BlockPos upBlockPos = pos.up();
-
-    boolean isGatePowered = world.isReceivingRedstonePower(upBlockPos);
+    boolean isGatePowered = isGatePowered(world, pos);
 
     BlockState newState = state
       .with(SOURCE_POWERED, isSourcePowered)
@@ -131,17 +143,16 @@ public class ChannelBlock extends Block implements BlockEntityProvider {
 
     // Apply the new output value if needed
 
-    BlockEntity blockEntity = world.getBlockEntity(pos);
-
-    if (blockEntity instanceof ChannelBlockEntity) {
-      ChannelBlockEntity channelEntity = (ChannelBlockEntity) blockEntity;
-            
-      if (channelEntity.getOutputSignal() != sourcePowerStrength) {
-        channelEntity.setOutputSignal(sourcePowerStrength);
-        world.updateNeighborsAlways(pos, this);
-      }
-    }
+    updateSourceSignalStrength(world, pos, state.get(FACING));
   }
+
+  @Override
+public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, net.minecraft.item.ItemStack itemStack) {
+  if (world.isClient()) return;
+
+  // Grab the signal from behind to pass to the Block Entity
+  updateSourceSignalStrength(world, pos, state.get(FACING));
+}
 
   @Override
   public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -181,6 +192,37 @@ public class ChannelBlock extends Block implements BlockEntityProvider {
   }
 
   // Private properties
+
+  private boolean isSourcePowered(World world, BlockPos pos, Direction facing) {
+    Direction behindDirection = facing.getOpposite();
+    BlockPos behindBlockPos = pos.offset(behindDirection);
+
+    return world.isReceivingRedstonePower(behindBlockPos);
+  }
+
+  private boolean isGatePowered(World world, BlockPos pos) {
+    BlockPos upBlockPos = pos.up();
+
+    return world.isReceivingRedstonePower(upBlockPos);
+  }
+
+  private void updateSourceSignalStrength(World world, BlockPos pos, Direction facing) {
+    Direction behindDirection = facing.getOpposite();
+    BlockPos behindBlockPos = pos.offset(behindDirection);
+
+    int sourcePowerStrength = world.getEmittedRedstonePower(behindBlockPos, behindDirection);
+
+    BlockEntity blockEntity = world.getBlockEntity(pos);
+
+    if (blockEntity instanceof ChannelBlockEntity) {
+      ChannelBlockEntity channelEntity = (ChannelBlockEntity) blockEntity;
+            
+      if (channelEntity.getOutputSignal() != sourcePowerStrength) {
+        channelEntity.setOutputSignal(sourcePowerStrength);
+        world.updateNeighborsAlways(pos, this);
+      }
+    }
+  }
 
   private boolean isDrainActive(BlockState state) {
     boolean isDrainActive;
